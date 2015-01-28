@@ -1,0 +1,26 @@
+<% provide(:title, @subject.name) %>
+<%= link_to "< List of subjects", subjects_path, class: "btn btn-primary" %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="subject_info">
+      <h1>
+        <span>
+          Subject: <%= @subject.name %>
+          <%= link_to "Edit", edit_subject_path(@subject), class: "pull-right" %>
+        </span>
+      </h1>
+      <pre><%= @subject.instruction %></pre>
+    </section>
+    <section class="task_form">
+        <%= render "tasks/task_new" %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @subject.tasks.any? %>
+      <h3>Tasks (<%= @subject.tasks.count %>)</h3>
+      <ol class="tasks">
+        <%= render @tasks %>
+      </ol>
+    <% end %>
+  </div>
+</div>

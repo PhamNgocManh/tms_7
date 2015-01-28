@@ -1,0 +1,8 @@
+<li id="task-<%= task.id %>">
+  <span class="subject"><%= link_to task.subject.name, task.subject %></span>
+  <span class="name"><%= task.name %></span>
+  <span class="timestamp">
+  <%= link_to "Edit", edit_task_path(task) %>
+  <%= link_to "Delete", task, method: :delete,  data: { confirm: "You sure?" } %>
+  </span>
+</li>

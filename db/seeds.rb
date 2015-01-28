@@ -1,4 +1,3 @@
-
 User.create!(name:  "Admin",
              email: "admin@tms.com",
              require_password: true,

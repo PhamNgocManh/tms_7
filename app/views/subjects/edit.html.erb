@@ -1,0 +1,14 @@
+<% provide(:title, "Edit subject") %>
+<h1>Edit subject</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@subject) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :instruction %>
+      <%= f.text_area :instruction, cols: 20, rows: 10, class: "form-control" %>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
