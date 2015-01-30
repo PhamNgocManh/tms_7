@@ -4,6 +4,16 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
+  def edit
+  end
+
+  def destroy
+  end
+
+  def index
+    @users = User.all.paginate page: params[:page]
+  end
+
   private
   def logged_in_user
     unless logged_in?
