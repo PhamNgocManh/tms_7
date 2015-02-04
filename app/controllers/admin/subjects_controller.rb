@@ -1,4 +1,4 @@
-class SubjectsController < ApplicationController
+class Admin::SubjectsController < ApplicationController
   def new
     @subject = Subject.new
   end
@@ -11,7 +11,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new subject_params
     if @subject.save
       flash[:success] = "Added new subject"
-      redirect_to @subject
+      redirect_to [:admin, @subject]
     else
       render "new"
     end
@@ -28,7 +28,7 @@ class SubjectsController < ApplicationController
   def update
     @subject = Subject.find params[:id]
     if @subject.update_attributes subject_params
-     redirect_to @subject
+     redirect_to [:admin, @subject]
     else
       render "edit"
     end
@@ -37,7 +37,7 @@ class SubjectsController < ApplicationController
   def destroy
     Subject.find(params[:id]).destroy
     flash[:success] = "Subject deleted"
-    redirect_to subjects_url
+    redirect_to admin_subjects_url
   end
 
   private
