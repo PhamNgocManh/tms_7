@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   post 'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
-  resources :subjects
   namespace :admin do
     root 'dashboard#show'
+    resources :subjects
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

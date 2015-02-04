@@ -1,4 +1,4 @@
-module SubjectsHelper
+module Admin::SubjectsHelper
   def creat_add_task_button(f, tasks)
     new_object = f.object.class.reflect_on_association(tasks).klass.new
     fields = f.fields_for(tasks, new_object) do |builder|
