@@ -1,4 +1,3 @@
-
 User.create!(name:  "Admin",
              email: "admin@tms.com",
              require_password: true,
@@ -6,6 +5,7 @@ User.create!(name:  "Admin",
              password_confirmation: "foobar",
              admin: true,
              )
+
 
 User.create!(name:  "Example User",
              email: "user@tms.com",

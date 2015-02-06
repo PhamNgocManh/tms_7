@@ -1,0 +1,21 @@
+<% provide(:title, "Edit subject") %>
+<h1>Edit subject      </h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @subject do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :instruction %>
+      <%= f.text_area :instruction, cols: 20, rows: 10, class: "form-control" %>
+      </p>
+      <%= f.fields_for :tasks do |task| %>
+        <%= render "task_fields", :f => task %>
+      <% end %>
+      <p>____________Add new task________________</p>
+      <p><%= creat_add_task_button f, :tasks %></p>
+      <%= f.submit "Save changes      ", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
