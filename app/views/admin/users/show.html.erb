@@ -1,4 +1,4 @@
-<%= provide :titile, "Show user" %>
+<%= provide :titile, "Show user via admin" %>
 
 <div class="row">
   <div class="col-sm-8" style="background-color:lavender;"> 
@@ -7,7 +7,7 @@
       <h2> User profile </h2>
     </div>
     <div class="col-sm-3">
-      <h2><%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+      <h2><%= link_to "Edit", edit_admin_user_path(@user), class: "btn btn-primary" %>
       </h2>
     </div>
   </div>

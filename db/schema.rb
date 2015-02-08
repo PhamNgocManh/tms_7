@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130015342) do
+
+ActiveRecord::Schema.define(version: 20150209111216) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.datetime "start_time"
+    t.datetime "finish_time"
+  end
+
+  create_table "subject_courses", force: :cascade do |t|
+    t.integer  "course_id",  limit: 4
+    t.integer  "subject_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -29,6 +45,14 @@ ActiveRecord::Schema.define(version: 20150130015342) do
 
   add_index "tasks", ["subject_id"], name: "index_tasks_on_subject_id", using: :btree
 
+  create_table "user_courses", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "course_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "user_courses", ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255

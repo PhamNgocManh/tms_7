@@ -1,0 +1,6 @@
+<li>
+  <%= link_to course.name, admin_course_path(course) %>
+  | <%= link_to "delete", admin_course_path(course), method: :delete,
+                               data: {confirm: "You sure?"} %>
+  | <%= link_to "edit", edit_admin_course_path(course)%>
+</li>

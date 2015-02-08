@@ -37,7 +37,9 @@ module SessionsHelper
   end
 
   def log_out
+    current_user.require_password = false;
     forget current_user
+    current_user.require_password = true;
     session.delete :user_id
     current_user = nil
   end

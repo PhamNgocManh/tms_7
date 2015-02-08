@@ -1,4 +1,4 @@
-class Admin::SubjectsController < ApplicationController
+class Admin::SubjectsController < Admin::AdminController
   def new
     @subject = Subject.new
   end
