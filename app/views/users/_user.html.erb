@@ -1,13 +1,6 @@
 <li class="list-group-item">
   <%= link_to user.name, user %>
   <% if user.admin? %>
-    <%= link_to "Remove from admin groups", "#" %>
-  <% else %>
-    <%= link_to "Add to admin groups", "#" %>
-  <% end %>
-  <%= link_to "Edit", edit_user_path(user) %>
-  <%= link_to "Delete", "#" %>
-  <% if user.admin? %>
   <span class = "badge">
     Admin
   </span>

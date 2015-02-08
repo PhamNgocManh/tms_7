@@ -1,11 +1,6 @@
-class Admin::DashboardController < ApplicationController
-  before_action :admin_user, only: :show
+class Admin::DashboardController < Admin::AdminController
+ 
   def show
   end
 
-  private
-
-  def admin_user
-    redirect_to root_url unless current_user.admin?
-  end
 end
