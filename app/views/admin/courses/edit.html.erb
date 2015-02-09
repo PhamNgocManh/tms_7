@@ -1,12 +1,13 @@
 <% provide(:title, "Edit course") %>
-<h1>Update your profile</h1>
+<h1>Update <%= @course.name %> course</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [:admin, @course] do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-      
+
+      <h3>Add users to this course</h3>
       <% User.all.each do |user| %>
         <%= f.fields_for :user_courses, user do |builder| %>
           <%= user.name %><%= builder.check_box :_destroy,
@@ -15,7 +16,8 @@
           <%= builder.hidden_field :id, value: @course.user_course_id(user) %>
         <% end %>
       <% end %>
-      
+
+      <h3>Add subjects to this course</h3>
       <% Subject.all.each do |subject| %>
         <%= f.fields_for :subject_courses, subject do |builder| %>
           <%= subject.name %><%= builder.check_box :_destroy,
@@ -24,6 +26,13 @@
           <%= builder.hidden_field :id, value: @course.subject_course_id(subject) %>
         <% end %>
       <% end %>
+
+      <h3>Start date</h3>
+      <%= f.date_select :start_time, start_year: Date.current.year,
+        end_year: Date.current.year + 5 , class: 'form-control' %>
+      <h3>Finish date</h3>
+      <%= f.date_select :finish_time, start_year: Date.current.year,
+        end_year: Date.current.year + 5, class: 'form-control' %>
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
   </div>
