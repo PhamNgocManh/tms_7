@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
-  resources :subject_courses
+  # resources :subject_courses
   namespace :admin do
     root 'dashboard#show'
     resources :courses

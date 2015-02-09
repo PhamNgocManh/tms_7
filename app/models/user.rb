@@ -47,5 +47,4 @@ class User < ActiveRecord::Base
   def show_name_and_id
     "User name: #{name}"    
   end
-
 end

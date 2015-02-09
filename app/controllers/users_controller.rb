@@ -6,6 +6,19 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+    @user = User.find params[:id]
+    @user.require_password = false
+    if @user.update_attributes user_params
+      @user.require_password = true
+      redirect_to @user
+    else
+      @user.require_password = true
+      render "edit"
+    end
   end
 
   def index    
@@ -13,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def logged_in_user
     unless logged_in?
       store_location
@@ -22,4 +34,7 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_params
+    params.require(:user).permit :name, :email, :password, :password_confirmation
+  end
 end
