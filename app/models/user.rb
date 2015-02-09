@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token
-  attr_accessor :require_password
+  has_many :user_courses, dependent: :destroy
+  has_many :courses, through: :user_courses
+
+  attr_accessor :remember_token, :require_password
   before_save {self.email = email.downcase}
   validates :name,  presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -40,6 +42,10 @@ class User < ActiveRecord::Base
 
   def require_password?
     @require_password
+  end
+
+  def show_name_and_id
+    "User name: #{name}"    
   end
 
 end
