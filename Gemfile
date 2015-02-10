@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-datetimepicker-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'rails', '4.2.0'
 gem 'bcrypt', '3.1.7'
 gem 'faker', '1.4.3'

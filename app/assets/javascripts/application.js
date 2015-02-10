@@ -10,11 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
 function remove_fields(field) {
   $(field).prev().val("true");
   $(field).parent().hide()
@@ -27,3 +30,4 @@ function add_fields(link, name) {
   var re = new RegExp(m, 'g');
   $(link).parent().prev().append(name.replace(re,new_id));
 }
+$('.datepicker').datepicker()

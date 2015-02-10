@@ -1,7 +1,9 @@
 <%= @course.name %>
 <% @course.subjects.each do |subject| %>
-  <li><%= subject.name %></li>
+  <li><%= subject.name %></li> 
 <% end %>
+<h5>Start at: <%= @course.start_time %></h5>
+<h5>Finish at: <%= @course.finish_time %></h5>
 <h3>Users following</h3>
 <% @course.users.each do |user| %>
   <li><%= user.name %></li>
